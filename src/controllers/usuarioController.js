@@ -1,4 +1,4 @@
-const { prisma } = require('../config/prisma');
+const { prisma } = require('../config/prisma.js');
 
 class UsuarioController {
   async criar(req, res) {

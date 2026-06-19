@@ -1,24 +1,26 @@
-const express = require('express');
-const swaggerUi = require('swagger-ui-express');
-const swaggerSpecs = require('./config/swaggerSpecs');
+import express from 'express';
+import swaggerUi from 'swagger-ui-express';
+import swaggerSpecs from './config/swaggerSpecs.js';
 
-import { usuarioRoute } from './routes/usuarioRoute.js';
-import { clienteRoute } from './routes/clienteRoute.js';
-import { veiculoRoute } from './routes/veiculoRoute.js';
-import { vagaRoute } from './routes/vagaRoute.js';
-import { movimentacaoRoute } from './routes/movimentacaoRoute.js';
-
-import { Router } from 'express';
+import { usuarioRoutes } from './routes/usuarioRoute.js';
+import { clienteRoutes } from './routes/clienteRoute.js'; 
+import { veiculoRoutes } from './routes/veiculoRoute.js';
+import { vagaRoutes } from './routes/vagaRoute.js';
+import { movimentacaoRoutes } from './routes/movimentacaoRoute.js';
 
 const app = express();
+
 app.use(express.json());
 
+// Rota do Swagger
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
-app.use('/usuarios', usuarioRoutes);
-app.use('/clientes', clienteRoutes);
-app.use('/veiculos', veiculoRoutes);
-app.use('/vagas', vagaRoutes);
-app.use('/movimentacoes', movimentacaoRoutes);
+// Uso das rotas ajustado para as variáveis que importamos acima
+app.use('/usuarios', usuarioRoute);
+app.use('/clientes', clienteRoute);
+app.use('/veiculos', veiculoRoute);
+app.use('/vagas', vagaRoute);
+app.use('/movimentacoes', movimentacaoRoute);
 
-module.exports = app;
+// Exportação corrigida para ES Modules (Substituindo o antigo module.exports)
+export default app;

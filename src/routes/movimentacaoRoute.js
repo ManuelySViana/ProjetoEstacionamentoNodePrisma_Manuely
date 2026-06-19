@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { MovimentacaoController } from '../controllers/MovimentacaoController.js';
+import { MovimentacaoController } from '../controllers/movimentacaoController.js';
 
 const movimentacaoRoutes = Router();
 const controller = new MovimentacaoController();

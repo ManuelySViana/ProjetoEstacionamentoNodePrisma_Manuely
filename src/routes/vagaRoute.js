@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { VagaController } from '../controllers/VagaController.js';
+import { VagaController } from '../controllers/vagaController.js';
 
 const vagaRoutes = Router();
 const controller = new VagaController();
